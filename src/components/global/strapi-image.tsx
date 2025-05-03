@@ -9,8 +9,6 @@ export default function StrapiImage ({
   imageData: StrapiImageType;
   formatKey: "small" | "medium" | "large";
 }) {
-  console.log(process.env.STRAPI_API_URL!)
-
   const imageFormat = imageData.formats?.[formatKey];
   const src = imageFormat?.url || imageData.url || "";
   const width = imageFormat?.width || imageData.width;

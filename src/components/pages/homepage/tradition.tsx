@@ -41,8 +41,8 @@ function SectionTradition({
       {data.showTrianglesPattern && (
         <motion.div
           className="absolute w-[50%] md:w-1/3 bottom-0 right-0 translate-y-[30%] sm:translate-y-[40%] z-20"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0 }}
           viewport={{ once: true }}
         >

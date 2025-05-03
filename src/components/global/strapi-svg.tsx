@@ -4,7 +4,6 @@ import { SvgStrapi } from "../strapi-types";
 
 const StrapiSvg = ({ data }: { data: SvgStrapi }) => {
 
-  console.log(data);
   const src = data.url;
   const width = data.width;
   const height = data.height;

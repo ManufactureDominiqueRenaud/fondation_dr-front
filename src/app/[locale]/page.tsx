@@ -52,8 +52,6 @@ export default async function Home() {
     pageData = null;
   }
 
-  console.log("pageData", pageData);
-
   return (
     <main>
       {pageData?.data[0].sections.map((section) => {

@@ -28,8 +28,8 @@ function SectionModel({ data }: { data: SectionModelStrapiType | undefined }) {
       </div>
       <motion.div
         className="absolute w-2/3 md:w-[60%] lg:w-1/2 xl:w-[40%] md:right-1/2 lg:right-0 bottom-0 z-10 translate-y-1/2 md:translate-x-1/2 lg:md:translate-x-0 lg:z-30"
-        initial={{ opacity: 0, x: 150 }}
-        whileInView={{ opacity: 1, x: 0 }}
+        initial={{ opacity: 0, y: 150 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1 }}
         viewport={{ once: true }}
       >
