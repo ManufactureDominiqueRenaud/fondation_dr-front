@@ -44,7 +44,7 @@ export default async function RootLayout({
   let footerData;
   try {
     const footerRes = await fetch(
-      `http://localhost:1337/api/footer-single?populate[blocContact][populate][0]=links&populate[blocContact][populate][1]=buttons&populate[blocTeam][populate][0]=members&status=published&locale=${locale}`,
+      `${process.env.STRAPI_API_URL!}/api/footer-single?populate[blocContact][populate][0]=links&populate[blocContact][populate][1]=buttons&populate[blocTeam][populate][0]=members&status=published&locale=${locale}`,
       {
         next: { revalidate: 604800 }, // Revalidate every 7 days (604800 seconds)
       }

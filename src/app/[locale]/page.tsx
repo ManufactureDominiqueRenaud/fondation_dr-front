@@ -38,7 +38,7 @@ export default async function Home() {
   let pageData: pageDataExport | null = null;
   try {
     const pageRes = await fetch(
-      `http://localhost:1337/api/pages?filters[slug][$eq]=home&populate[header][fields][0]=*&status=published&locale=${locale}&populate[sections][populate]=*`,
+      `${process.env.STRAPI_API_URL!}/api/pages?filters[slug][$eq]=home&populate[header][fields][0]=*&status=published&locale=${locale}&populate[sections][populate]=*`,
       {
         next: { revalidate: 604800 }, // Revalidate every 7 days (604800 seconds)
       }
@@ -51,6 +51,8 @@ export default async function Home() {
     );
     pageData = null;
   }
+
+  console.log("pageData", pageData);
 
   return (
     <main>

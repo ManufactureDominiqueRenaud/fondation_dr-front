@@ -184,7 +184,7 @@ export type SvgStrapi = {
   ext: string | null;
   mime: string | null;
   size: number;
-  url: string | null;
+  url: string;
   previewUrl: string | null;
   provider: string | null;
   provider_metadata: string | null;

@@ -12,7 +12,7 @@ export default function StrapiImage ({
   console.log(process.env.STRAPI_API_URL!)
 
   const imageFormat = imageData.formats?.[formatKey];
-  const src = process.env.STRAPI_API_URL! + imageFormat?.url || imageData.url || "";
+  const src = imageFormat?.url || imageData.url || "";
   const width = imageFormat?.width || imageData.width;
   const height = imageFormat?.height || imageData.height;
   const blurDataURL = process.env.STRAPI_API_URL! + imageData.formats?.thumbnail?.url || "";
