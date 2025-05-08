@@ -3,8 +3,6 @@ import { Montserrat, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -40,25 +38,6 @@ export default async function RootLayout({
     redirect("/en");
   }
 
-  //DATA FOOTER
-  let footerData;
-  try {
-    const footerRes = await fetch(
-      `${process.env
-        .STRAPI_API_URL!}/api/footer-single?populate[blocContact][populate][0]=links&populate[blocContact][populate][1]=buttons&populate[blocTeam][populate][0]=members&status=published&locale=${locale}`,
-      {
-        next: { revalidate: 604800, tags: ["footer-data"] }, // Revalidate every 7 days (604800 seconds)
-      }
-    );
-    footerData = await footerRes.json();
-  } catch (error) {
-    console.error(
-      "Erreur lors de la récupération des données du footer:",
-      error
-    );
-    footerData = null;
-  }
-
   return (
     <html lang={locale}>
       <head>
@@ -84,9 +63,7 @@ export default async function RootLayout({
       <body
         className={`${montserrat.variable} ${garamond.variable} font-sans antialiased`}
       >
-        <Header />
         {children}
-        <Footer data={footerData?.data} />
       </body>
     </html>
   );

@@ -62,7 +62,7 @@ export default async function Home() {
   }
 
   return (
-    <main>
+    <>
       {pageData?.data[0].sections.map((section) => {
         switch (section.__component) {
           case "sections-homepage.hero-header":
@@ -98,6 +98,6 @@ export default async function Home() {
             return null;
         }
       })}
-    </main>
+    </>
   );
 }

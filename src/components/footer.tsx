@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import type { Footer as FooterType } from "./strapi-types";
 import { cn } from "@/lib/utils";
 import ButtonStrapi from "./global/button-strapi";
@@ -11,7 +12,10 @@ export default function Footer({ data }: { data: FooterType | null }) {
 
   return (
     <footer
-      className={cn("bg-black text-white p-8 md:p-16 lg:p-32 lg:py-24 xl:p-48 xl:py-24", "flex flex-col md:flex-row md:gap-16 items-center md:items-stretch")}
+      className={cn(
+        "bg-black text-white p-8 md:p-16 lg:p-32 lg:py-24 xl:p-48 xl:py-24",
+        "flex flex-col md:flex-row md:gap-16 items-center md:items-stretch"
+      )}
     >
       <div className="border-l border-white pl-4 w-full md:2/3">
         <p className="font-semibold uppercase">{data.blocTeam.title}</p>
