@@ -22,7 +22,12 @@ type PageStrapiType = {
   metaTitle: string;
   metaDescription: string;
   header: Header;
-  sections: (SectionAProposHomeStrapiType | HeroHeaderHomeStrapiType | SectionTraditionStrapiType | SectionModelStrapiType)[];
+  sections: (
+    | SectionAProposHomeStrapiType
+    | HeroHeaderHomeStrapiType
+    | SectionTraditionStrapiType
+    | SectionModelStrapiType
+  )[];
 };
 
 type pageDataExport = {
@@ -38,9 +43,13 @@ export default async function Home() {
   let pageData: pageDataExport | null = null;
   try {
     const pageRes = await fetch(
-      `${process.env.STRAPI_API_URL!}/api/pages?filters[slug][$eq]=home&populate[header][fields][0]=*&status=published&locale=${locale}&populate[sections][populate]=*`,
+      `${process.env
+        .STRAPI_API_URL!}/api/pages?filters[slug][$eq]=home&populate[header][fields][0]=*&status=published&locale=${locale}&populate[sections][populate]=*`,
       {
-        next: { revalidate: 604800 }, // Revalidate every 7 days (604800 seconds)
+        next: {
+          revalidate: 604800,
+          tags: ["page-homepage-data"],
+        }, // Revalidate every 7 days (604800 seconds)
       }
     );
     pageData = await pageRes.json();

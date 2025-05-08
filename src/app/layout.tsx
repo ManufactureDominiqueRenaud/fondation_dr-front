@@ -44,9 +44,10 @@ export default async function RootLayout({
   let footerData;
   try {
     const footerRes = await fetch(
-      `${process.env.STRAPI_API_URL!}/api/footer-single?populate[blocContact][populate][0]=links&populate[blocContact][populate][1]=buttons&populate[blocTeam][populate][0]=members&status=published&locale=${locale}`,
+      `${process.env
+        .STRAPI_API_URL!}/api/footer-single?populate[blocContact][populate][0]=links&populate[blocContact][populate][1]=buttons&populate[blocTeam][populate][0]=members&status=published&locale=${locale}`,
       {
-        next: { revalidate: 604800 }, // Revalidate every 7 days (604800 seconds)
+        next: { revalidate: 604800, tags: ["footer-data"] }, // Revalidate every 7 days (604800 seconds)
       }
     );
     footerData = await footerRes.json();
