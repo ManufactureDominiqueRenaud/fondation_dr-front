@@ -32,11 +32,9 @@ export default function Footer({ data }: { data: FooterType | null }) {
             </p>
             <div className="mt-4">
               {data.blocTeam.members.map((member, index) => (
-                member.name !== "Mme Olivia Dhordain" ? (
-                  <p key={index} className="">
-                    {member.name}
-                  </p>
-                ) : null
+                <p key={index} className="">
+                  {member.name}
+                </p>
               ))}
             </div>
           </div>
