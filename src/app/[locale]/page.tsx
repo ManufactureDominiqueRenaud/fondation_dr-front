@@ -100,7 +100,7 @@ export default async function Home() {
         }
       })}
       <ImageModal
-        src={`/assets/SAVETHEDATE_AMPLITUDE_OP.II_${locale}.webp`}
+        src={`/assets/SAVETHEDATE_AMPLITUDE_OP.II_${locale?.toUpperCase()}.webp`}
         alt="Save the Date - Amplitude OP.II"
         ctaLabel={locale === "fr" ? "Réservez votre place" : "Book your seat"}
         ctaLink="https://tally.so/r/gDrLNP"
