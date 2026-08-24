@@ -12,7 +12,7 @@ export async function POST(req: Request) {
 
   // Revalide tous les tags
   try {
-    revalidateAllTags();
+    await revalidateAllTags();
     return NextResponse.json({ revalidated: true }, { status: 200 });
   } catch (error) {
     const errorMessage =
