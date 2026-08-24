@@ -1,3 +1,4 @@
+import ImageModal from "@/components/modals/image-modal";
 import SectionAPropos from "@/components/pages/homepage/a-propos";
 import HeroSection from "@/components/pages/homepage/hero-section";
 import SectionModel from "@/components/pages/homepage/model";
@@ -98,6 +99,12 @@ export default async function Home() {
             return null;
         }
       })}
+      <ImageModal
+        src={`/assets/SAVETHEDATE_AMPLITUDE_OP.II_${locale}.webp`}
+        alt="Save the Date - Amplitude OP.II"
+        ctaLabel={locale === "fr" ? "Réservez votre place" : "Book your seat"}
+        ctaLink="https://tally.so/r/gDrLNP"
+      />
     </>
   );
 }
