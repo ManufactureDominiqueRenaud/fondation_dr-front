@@ -99,12 +99,12 @@ export default async function Home() {
             return null;
         }
       })}
-      {/* <ImageModal
-        src={`/assets/SAVETHEDATE_AMPLITUDE_OP.II_${locale?.toUpperCase()}.webp`}
+      <ImageModal
+        src={`/assets/FDR_POPUP_OPENSCIENCE_1080X2700PX_${locale?.toUpperCase()}.webp`}
         alt="Save the Date - Amplitude OP.II"
         ctaLabel={locale === "fr" ? "Réservez votre place" : "Book your seat"}
-        ctaLink="https://tally.so/r/gDrLNP"
-      /> */}
+        ctaLink="https://tally.so/r/VL6VWy"
+      />
     </>
   );
 }
