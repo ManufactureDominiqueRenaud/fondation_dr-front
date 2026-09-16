@@ -1,12 +1,10 @@
 import {
-  SectionHeaderStrapiType,
-  SectionTitleStrapiType,
-  SectionContentStrapiType,
+  SectionBannerStrapiType,
+  SectionImageContentStrapiType,
 } from "@/components/strapi-types";
-import SectionHeader from "@/components/pages/dom/section-header";
 import { headers } from "next/headers";
-import SectionTitle from "@/components/pages/dom/section-title";
-import SectionContent from "@/components/pages/dom/section-content";
+import SectionImageContent from "@/components/pages/dom/section-image-content";
+import SectionBanner from "@/components/pages/dom/section-banner";
 
 type PageStrapiType = {
   id: number;
@@ -18,11 +16,7 @@ type PageStrapiType = {
   slug: string;
   metaTitle: string;
   metaDescription: string;
-  sections: (
-    | SectionHeaderStrapiType
-    | SectionTitleStrapiType
-    | SectionContentStrapiType
-  )[];
+  sections: (SectionBannerStrapiType | SectionImageContentStrapiType)[];
 };
 
 type pageDataExport = {
@@ -56,29 +50,28 @@ export default async function Home() {
     pageData = null;
   }
 
-  const sections = pageData?.data[0]?.sections ?? [];
-  const header = sections.find(
-    (s): s is SectionHeaderStrapiType =>
-      s.__component === "sections-dom.section-header",
-  );
-  const title = sections.find(
-    (s): s is SectionTitleStrapiType =>
-      s.__component === "sections-dom.section-title",
-  );
-  const content = sections.find(
-    (s): s is SectionContentStrapiType =>
-      s.__component === "sections-dom.section-content",
-  );
-
   return (
-    <div className="w-full px-8 md:px-16 lg:px-32 xl:px-48 py-16 md:py-32 xl:py-64 bg-black">
-      <div className="2xl:grid grid-cols-2 gap-x-32 max-w-360 mx-auto">
-        <SectionHeader data={header} />
-        <div className="flex flex-col justify-center gap-16">
-          <SectionTitle data={title} />
-          <SectionContent data={content} />
-        </div>
-      </div>
+    <div className="w-full px-8 md:px-16 lg:px-32 xl:px-48 py-24 md:py-32 xl:py-64 bg-black">
+      {pageData?.data[0].sections.map((section) => {
+        switch (section.__component) {
+          case "sections-dom.section-banner":
+            return (
+              <SectionBanner
+                data={section}
+                key={section.id + section.__component}
+              />
+            );
+          case "sections-dom.section-content":
+            return (
+              <SectionImageContent
+                data={section}
+                key={section.id + section.__component}
+              />
+            );
+          default:
+            return null;
+        }
+      })}
     </div>
   );
 }

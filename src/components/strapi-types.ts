@@ -236,21 +236,19 @@ export type SectionAProposHomeStrapiType = {
 };
 
 //SECTIONS DOM
-export type SectionHeaderStrapiType = {
-  __component: "sections-dom.section-header";
+export type SectionBannerStrapiType = {
+  __component: "sections-dom.section-banner";
   id: number;
+  is_video_banner: boolean;
   image: Image;
+  iframe_link: string;
+  cta: CTA[];
 }
 
-export type SectionTitleStrapiType = {
-  __component: "sections-dom.section-title";
-  id: number;
-  title: string;  
-}
-
-export type SectionContentStrapiType = {
+export type SectionImageContentStrapiType = {
   __component: "sections-dom.section-content";
   id: number;
+  image: Image;
   content: string;
   cta: CTA[];
 }

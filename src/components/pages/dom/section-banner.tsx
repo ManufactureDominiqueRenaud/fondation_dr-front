@@ -1,9 +1,9 @@
-import { SectionHeaderStrapiType } from "@/components/strapi-types";
+import { SectionBannerStrapiType } from "@/components/strapi-types";
 
-export default function SectionHeader({
+export default function SectionBanner({
   data,
 }: {
-  data: SectionHeaderStrapiType | undefined;
+  data: SectionBannerStrapiType | undefined;
 }) {
   if (!data) return null;
   return (
