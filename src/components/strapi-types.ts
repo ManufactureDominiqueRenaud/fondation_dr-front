@@ -193,6 +193,13 @@ export type SvgStrapi = {
   publishedAt: string | null;
 };
 
+export type CTA = {
+  id: number;
+  text: string;
+  link: string;
+  type: "primary" | "secondary";
+}
+
 //SECTIONS HOMEPAGE
 export type HeroHeaderHomeStrapiType = {
   __component: "sections-homepage.hero-header";
@@ -228,3 +235,22 @@ export type SectionAProposHomeStrapiType = {
   image: Image;
 };
 
+//SECTIONS DOM
+export type SectionHeaderStrapiType = {
+  __component: "sections-dom.section-header";
+  id: number;
+  image: Image;
+}
+
+export type SectionTitleStrapiType = {
+  __component: "sections-dom.section-title";
+  id: number;
+  title: string;  
+}
+
+export type SectionContentStrapiType = {
+  __component: "sections-dom.section-content";
+  id: number;
+  content: string;
+  cta: CTA[];
+}
