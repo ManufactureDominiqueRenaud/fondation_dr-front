@@ -22,6 +22,25 @@ export default async function RootLayout({
     redirect("/en");
   }
 
+  //DATA HEADER
+  let headerData;
+  try {
+    const headerRes = await fetch(
+      `${process.env
+        .STRAPI_API_URL!}/api/header-single?status=published&locale=${locale}&populate[logo]=true&populate[logo_mobile]=true&populate[navlink]=true`,
+      {
+        next: { revalidate: 1, tags: ["header-data"] },
+      },
+    );
+    headerData = await headerRes.json();
+  } catch (error) {
+    console.error(
+      "Erreur lors de la récupération des données du header:",
+      error,
+    );
+    headerData = null;
+  }
+
   //DATA FOOTER
   let footerData;
   try {
@@ -30,20 +49,19 @@ export default async function RootLayout({
         .STRAPI_API_URL!}/api/footer-single?populate[blocContact][populate][0]=links&populate[blocContact][populate][1]=buttons&populate[blocTeam][populate][0]=members&status=published&locale=${locale}`,
       {
         next: { revalidate: 604800, tags: ["footer-data"] }, // Revalidate every 7 days (604800 seconds)
-      }
+      },
     );
     footerData = await footerRes.json();
   } catch (error) {
     console.error(
       "Erreur lors de la récupération des données du footer:",
-      error
+      error,
     );
     footerData = null;
   }
-
   return (
-    <main>
-      <Header />
+    <main className="min-h-screen flex flex-col justify-between">
+      <Header data={headerData?.data} />
       {children}
       <Footer data={footerData?.data} />
     </main>
