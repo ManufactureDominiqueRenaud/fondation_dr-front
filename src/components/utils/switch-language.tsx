@@ -4,11 +4,11 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-function SwitchLanguage() {
+function SwitchLanguage({ className }: { className?: string }) {
   const pathname = usePathname();
 
   return (
-    <div>
+    <div className={className ?? ""}>
       <Link
         href={"/en" + pathname.replace(/^\/(fr|en)/, "")}
         className={cn(
