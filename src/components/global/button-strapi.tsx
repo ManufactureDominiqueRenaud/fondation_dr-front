@@ -22,7 +22,7 @@ function ButtonStrapi({
 
         color === "black" && "bg-black text-white",
         color === "white" && "bg-white text-black",
-        color === "primary" && "bg-[#C2262E] hover:bg-[#C2262E]/90 text-black",
+        color === "primary" && "bg-[#C2262E] hover:bg-[#C2262E]/90 text-white",
 
         font === "serif" && "font-serif",
         font === "sans" && "font-sans",
