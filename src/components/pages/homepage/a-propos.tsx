@@ -15,7 +15,7 @@ const SectionAPropos = ({
   if (!data) return null;
 
   return (
-    <section className="relative flex flex-col-reverse lg:flex-row items-center lg:justify-between px-8 md:px-16 lg:px-32 xl:px-48 pb-24 lg:pt-16">
+    <section className="relative flex flex-col-reverse lg:flex-row items-center lg:justify-between px-8 md:px-16 lg:px-32 xl:px-48 pb-24 lg:pt-16 bg-white">
       <motion.div
         className="space-y-4 lg:w-[60%]"
         initial={{ opacity: 0, y: 50 }}
