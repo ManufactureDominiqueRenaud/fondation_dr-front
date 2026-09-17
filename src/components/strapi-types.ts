@@ -23,6 +23,15 @@ export type Header = {
   showLanguageSelector: boolean;
 };
 
+export type HeaderSingle = {
+  id: number;
+  documentId: string;
+  locale: String;
+  logo: SvgStrapi;
+  logo_mobile: SvgStrapi;
+  navlink: Link[];
+};
+
 export type Footer = {
   blocContact: blocContact;
   blocTeam: blocTeam;
@@ -237,18 +246,19 @@ export type SectionAProposHomeStrapiType = {
 
 //SECTIONS DOM
 export type SectionBannerStrapiType = {
-  __component: "sections-dom.section-banner";
+  __component: "sections-page.section-banner";
   id: number;
   is_video_banner: boolean;
-  image: Image;
-  iframe_link: string;
-  cta: CTA[];
+  image: Image | null;
+  image_mobile: Image | null;
+  iframe_link: string | null;
+  cta: CTA[] | null;
 }
 
 export type SectionImageContentStrapiType = {
-  __component: "sections-dom.section-content";
+  __component: "sections-page.section-image-content";
   id: number;
-  image: Image;
+  image: Image | null;
   content: string;
-  cta: CTA[];
+  cta: CTA[] | null;
 }
