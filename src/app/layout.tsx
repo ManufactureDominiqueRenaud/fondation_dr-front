@@ -61,7 +61,7 @@ export default async function RootLayout({
         <link rel="manifest" href="/favicon/site.webmanifest" />
       </head>
       <body
-        className={`${montserrat.variable} ${garamond.variable} font-sans antialiased`}
+        className={`${montserrat.variable} ${garamond.variable} font-sans antialiased bg-black`}
       >
         {children}
       </body>
