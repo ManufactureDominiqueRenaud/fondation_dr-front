@@ -15,7 +15,7 @@ function HeroSection({ data }: { data: HeroHeaderHomeStrapiType | undefined }) {
   return (
     <>
       {/* //TABLET AND ABOVE */}
-      <section className="lg:hidden bg-black w-screen min-h-screen flex flex-col items-center">
+      <section className="lg:hidden bg-black w-screen min-h-screen flex flex-col items-center md:pt-16 p-2">
         <motion.div
           className="flex items-center gap-8 px-8 mt-20 mb-8 w-full md:w-2/3"
           initial={{ opacity: 0, y: 10 }}
@@ -81,7 +81,7 @@ function HeroSection({ data }: { data: HeroHeaderHomeStrapiType | undefined }) {
         )}
       </section>
       {/* //LAPTOP */}
-      <section className="hidden lg:flex bg-black items-center min-h-screen gap-12 py-8">
+      <section className="hidden lg:flex bg-black items-center min-h-screen gap-12 pb-8 pt-24">
         <motion.div
           className="w-1/2"
           initial={{ opacity: 0, y: 50 }}
